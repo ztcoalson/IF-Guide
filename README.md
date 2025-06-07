@@ -63,7 +63,7 @@ This calls `train.py`, which accepts the following key arguments:
 
 | Argument                   | Description                                                                 |
 |----------------------------|-----------------------------------------------------------------------------|
-| `--model_name`             | Name of the model to train. Must be registered in `./utils/registry.yaml` with a corresponding tokenizer (see existing models for examples) |
+| `--model_name`             | Name of the model to train. Must be registered in `utils/registry.yaml` with a corresponding tokenizer (see existing models for examples) |
 | `--save_id`                | Descriptor tag used for output directory naming.        |
 | `--toxic_token_mask_path`  | Path to a token mask (generated via IF-Guide). Use `None` for standard training. |
 | `--toxic_lambda`           | The strength of the penalty term used by our training objective. |
@@ -130,7 +130,7 @@ This runs `compute_scores.py` with the following key arguments (in addition to m
 | `--save_id`            | Tag appended to the end of the save directory for custom naming. |
 | `--save_dir`           | Directory to save scores in (within the original factors directory).
 | `--factors_path`       | Path to the directory containing the (inverse) Hessian factors fit in the previous step. |
-| `--query_dataset`      | The query dataset for constructing the query gradient. Currently the only option is `'RTP'`. | 
+| `--query_dataset`      | The query dataset for constructing the query gradient. Currently, the only option is `RTP`. | 
 | `--toxic_query_indices_path` | Path to the indices from the query dataset pertaining to *toxic* demonstrations. We provide our toxic subset from RTP in `../data/RTP/query_indices/toxic_indices.npy`. | 
 | `--nontoxic_query_indices_path` | Path to indices for *non-toxic* queries. We provide our non-toxic subset from RTP in `../data/RTP/query_indices/nontoxic_indices.npy`. |
 
@@ -153,8 +153,8 @@ This runs `build_toxic_token_mask.py`. It takes the following primary arguments:
 | `--window`            | The context window length. |
 | `--toxicity_threshold`           | The threshold for determining toxic tokens (as a percentile, e.g., 0.99).
 | `--max_tokens`       | The maximum number of toxic tokens to select. |
-| `--query_dataset`      | The query dataset for constructing the query gradient. Currently the only option is 'RTP'. | 
-| `--inspection_idx` | We automatically print out the suppressed tokens for a single training example in red. This arguments specifies which example based by ranking (e.g., 0 is the highest ranked training example).  | 
+| `--query_dataset`      | The query dataset for constructing the query gradient. Currently, the only option is `RTP`. | 
+| `--inspection_idx` | We automatically print out the suppressed tokens for a single training example in red. This argument specifies which example to print based on its ranking (e.g., 0 is the highest-ranked training example).  | 
 
 &nbsp;
 
@@ -186,9 +186,9 @@ This runs `run_toxicity_eval.py`, which has the following main arguments:
 |----------------------------|-----------------------------------------------------------------------------|
 | `--model_name`         | Name of the model to evaluate. |
 | `--checkpoint_dir`     | Path to the saved model. If using a pre-trained model, set it to `None`. |
-| `--dataset`            | Dataset to evaluate on. Either 'RTP', 'AttaQ', or 'BOLD'. |
+| `--dataset`            | Dataset to evaluate on. Either `RTP`, `AttaQ`, or `BOLD`. |
 | `--save_dir`           | Directory to save the results in.
-| `--decoding_defense`       | Decoding-time defense to apply. 'none' or 'rad'. Does not apply to our OpenWebText evaluation. |
+| `--decoding_defense`       | Decoding-time defense to apply. `none` or `rad`. Does not apply to our OpenWebText evaluation. |
 | `--save_outputs`      | Whether to save the model's outputs. | 
 
 &nbsp;
@@ -224,9 +224,9 @@ It has the following primary arguments:
 |----------------------------|-----------------------------------------------------------------------------|
 | `--model_name`         | Name of the model to evaluate. |
 | `--checkpoint_dir`     | Path to the saved model. If using a pre-trained model, set it to `None`. |
-| `--dataset`            | Dataset to evaluate on. Either 'RTP', 'AttaQ', or 'BOLD'. |
+| `--dataset`            | Dataset to evaluate on. Either `RTP`, `AttaQ`, or `BOLD`. |
 | `--save_dir`           | Directory to save the results in.
-| `--decoding_defense`       | Decoding-time defense to apply. 'none' or 'rad'. Does not apply to our OpenWebText evaluation. |
+| `--decoding_defense`       | Decoding-time defense to apply. `none` or `rad`. Does not apply to our OpenWebText evaluation. |
 
 &nbsp;
 
