@@ -25,12 +25,6 @@ We study how training data contributes to the emergence of toxic behaviors in la
 
 ## Installation
 
-First, initialize the [Kronfluence](https://github.com/pomonam/kronfluence) package used for running influence functions (we provide a custom implementation that supports *differential influence*):
-
-```bash
-git submodule update --init --recursive
-```
-
 Create the conda environment (you can use any environment with `python>=3.10`) and install the necessary packages:
 
 ```bash
