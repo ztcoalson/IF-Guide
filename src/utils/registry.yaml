@@ -1,0 +1,63 @@
+##################
+# MODEL REGISTRY #
+##################
+
+# Notes:
+# Most scripts require a `model_name` argument, which refers to a model defined in the below list. 
+# We provide all models used in our work, but it is simple to add more.
+# Be sure to match each model with a corresponding tokenizer.
+
+models:
+  llama-3.2-1b:
+    path: meta-llama/Llama-3.2-1B   # HuggingFace Hub path
+    family: "llama-3"               # Model family; used by `utils/tasks.py` to set up influence function tracking
+    tokenizer: pythia-tok           # Tokenizer used by this model; see below tokenizers
+    block_size: 2048                # Block size (number of tokens) used to train the model
+    pretrained: False               # Whether to load this model's pre-trained weights from the HuggingFace Hub
+    num_layers: 16                  # Number of layers (Transformer blocks) in this model; used by `utils/tasks.py` to set up influence function tracking
+    kwargs:                         # You can specify any other model kwargs supported by Transformers here
+      torch_dtype: bfloat16         # Torch data type the model should be loaded in
+    
+  pythia-160m:
+    path: EleutherAI/pythia-160m-deduped
+    family: pythia
+    tokenizer: pythia-tok
+    block_size: 2048
+    pretrained: False
+    num_layers: 12
+    kwargs:
+      torch_dtype: bfloat16
+
+  pythia-410m:
+    path: EleutherAI/pythia-410m-deduped
+    family: pythia
+    tokenizer: pythia-tok
+    block_size: 2048
+    pretrained: False
+    num_layers: 24
+    kwargs:
+      torch_dtype: bfloat16
+  
+  pythia-1b:
+    path: EleutherAI/pythia-1b-deduped
+    family: pythia
+    tokenizer: pythia-tok
+    block_size: 2048
+    pretrained: False
+    num_layers: 16
+    kwargs:
+      torch_dtype: bfloat16
+    
+  pythia-2.8b-pretrained:
+    path: EleutherAI/pythia-2.8b-deduped
+    family: pythia
+    tokenizer: pythia-tok
+    block_size: 2048
+    pretrained: True
+    kwargs:
+      torch_dtype: bfloat16
+
+tokenizers:
+  pythia-tok:
+    path: EleutherAI/pythia-70m-deduped   # HuggingFace Hub path
+    vocab_size: 50304                     # Vocab size of the tokenizer; used to potentially correct vocab sizes between models and tokenizers

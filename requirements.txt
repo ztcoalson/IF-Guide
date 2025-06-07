@@ -1,0 +1,12 @@
+torch==2.5.1
+torchaudio==2.5.1
+torchvision==0.20.1
+requests==2.32.3
+transformers==4.50.0
+detoxify==0.5.2
+datasets==3.4.1
+urllib3==2.3.0
+trl==0.17.0
+colorama==0.4.6
+gdown==5.2.0
+-e external/kronfluence
