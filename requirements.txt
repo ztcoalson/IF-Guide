@@ -9,4 +9,4 @@ urllib3==2.3.0
 trl==0.17.0
 colorama==0.4.6
 gdown==5.2.0
--e external/kronfluence
+git+https://github.com/ztcoalson/kronfluence.git#egg=kronfluence

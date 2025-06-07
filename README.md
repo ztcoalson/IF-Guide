@@ -34,12 +34,14 @@ git submodule update --init --recursive
 Create the conda environment (you can use any environment with `python>=3.10`) and install the necessary packages:
 
 ```bash
-conda create -n IF python=3.10
-conda activate IF
+conda create -n IF-Guide python=3.10
+conda activate IF-Guide
 pip install -r requirements.txt
 ```
 
-Then, navigate to the working directory:
+**Note:** We use the package [Kronfluence](https://github.com/pomonam/kronfluence) to compute influence scores with EK-FAC. We create a [custom implementation](https://github.com/ztcoalson/kronfluence) that supports the *differential influence* technique introduced in our paper (page 4, Eq. 6). Credit to all other components of the package goes to the original creators. Thank you!
+
+Next, navigate to the working directory:
 
 ```bash
 cd src
@@ -63,7 +65,7 @@ This calls `train.py`, which accepts the following key arguments:
 |----------------------------|-----------------------------------------------------------------------------|
 | `--model_name`             | Name of the model to train. Must be registered in `./utils/registry.yaml` with a corresponding tokenizer (see existing models for examples) |
 | `--save_id`                | Descriptor tag used for output directory naming.        |
-| `--toxic_token_mask_path`  | Path to a token mask (generated via IF-Guide). Use `None` for baseline. |
+| `--toxic_token_mask_path`  | Path to a token mask (generated via IF-Guide). Use `None` for standard training. |
 | `--toxic_lambda`           | The strength of the penalty term used by our training objective. |
 
 
